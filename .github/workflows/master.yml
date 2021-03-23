@@ -41,10 +41,11 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: zipfile
+        path: java-runtime/build/distributions/
       
-    - uses: actions/setup-node@v1
+    - uses: actions/setup-node@v2
       with:
-        node-version: '10.x'
+        node-version: '14'
         
     - name: Install Serverless Framework
       run: npm install -g serverless
