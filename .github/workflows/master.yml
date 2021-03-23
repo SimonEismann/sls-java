@@ -9,7 +9,7 @@ on:
 jobs:
   build:
 
-    runs-on: descartesresearch/teastore-webui
+    runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: java-runtime
