@@ -38,14 +38,15 @@ jobs:
         working-directory: java-runtime
     steps:
     - uses: actions/checkout@v2
+    
     - uses: actions/download-artifact@v2
       with:
         name: zipfile
         path: java-runtime/build/distributions/
-    - run: ls
-    - uses: Teakowa/setup-serverless@main
+    
+    - uses: serverless/github-action@master
       with:
-        provider: aws
+        args: deploy --stage main --verbose
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_KEY}}
