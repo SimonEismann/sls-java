@@ -49,7 +49,7 @@ jobs:
 
     - run: npm install -g serverless
     
-    -run: sls config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY }} --secret ${{ secrets.AWS_SECRET_KEY }}
+    - run: sls config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY }} --secret ${{ secrets.AWS_SECRET_KEY }}
 
     - name: Deploy
       run: serverless deploy --stage main --verbose
