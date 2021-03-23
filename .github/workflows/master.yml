@@ -8,12 +8,10 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
     defaults:
       run:
         working-directory: java-runtime
-
     steps:
     - uses: actions/checkout@v2
     
@@ -21,10 +19,24 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.11
-      
     - name: Build 
       run: chmod +x gradlew; ./gradlew build
-    
+    - name: Upload zip file
+      uses: actions/upload-artifact@v1
+      with:
+        name: zipfile
+        path: build/distributions/hello.zip
+  
+  deploy:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: java-runtime
+    steps:
+    - name: Download hello world file
+      uses: actions/download-artifact@v1
+      with:
+        name: zipfile
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
