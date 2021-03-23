@@ -37,6 +37,7 @@ jobs:
       run:
         working-directory: java-runtime
     steps:
+    - uses: actions/checkout@v2
     - uses: actions/download-artifact@v2
       with:
         name: zipfile
