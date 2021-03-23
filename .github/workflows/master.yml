@@ -23,7 +23,7 @@ jobs:
     - name: Build 
       run: chmod +x gradlew; ./gradlew build
     
-    - run: test -f build/distributions/hello.zip
+    - run: cat build/distributions/hello.zip
     
     - name: Upload
       uses: actions/upload-artifact@v2
