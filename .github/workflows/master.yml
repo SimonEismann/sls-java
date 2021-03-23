@@ -23,13 +23,11 @@ jobs:
     - name: Build 
       run: chmod +x gradlew; ./gradlew build
     
-    - run: cat build/distributions/hello.zip
-    
     - name: Upload
       uses: actions/upload-artifact@v2
       with:
         name: zipfile
-        path: ~/build/distributions/hello.zip
+        path: ${{ github.workspace }}/build/distributions/hello.zip
         if-no-files-found: error
 
   deploy:
