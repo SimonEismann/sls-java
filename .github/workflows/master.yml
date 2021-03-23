@@ -29,7 +29,7 @@ jobs:
       uses: actions/upload-artifact@v2
       with:
         name: zipfile
-        path: build/distributions/hello.zip
+        path: ~/build/distributions/hello.zip
         if-no-files-found: error
 
   deploy:
