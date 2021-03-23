@@ -42,7 +42,7 @@ jobs:
         name: zipfile
         path: java-runtime/build/distributions/
  
-    - uses: Teakowa/setup-serverless@v1.1
+    - uses: Teakowa/setup-serverless@main
       with:
         provider: aws
       env:
