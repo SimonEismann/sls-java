@@ -19,32 +19,17 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 1.11
+        
     - name: Build 
       run: chmod +x gradlew; ./gradlew build
-    - name: test
-      run: ls ; cd build ; ls ; cd distributions ; ls
-    - name: Upload zip file
-      uses: actions/upload-artifact@v2
-      with:
-        name: zipfile
-        path: build/distributions/hello.zip
-  
-  deploy:
-    runs-on: ubuntu-latest
-    needs: build
-    defaults:
-      run:
-        working-directory: java-runtime
-    steps:
-    - name: Download hello world file
-      uses: actions/download-artifact@v2
-      with:
-        name: zipfile
+      
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
+        
     - name: Install Serverless Framework
       run: npm install -g serverless
+      
     - name: Serverless AWS authentication
       run: sls config credentials --provider aws --key ${{ secrets.AWS_ACCESS_KEY }} --secret ${{ secrets.AWS_SECRET_KEY }}
     
