@@ -26,8 +26,8 @@ jobs:
     - name: Upload zip file
       uses: actions/upload-artifact@v1
       with:
-        name: zipfile
-        path: build/distributions/hello.zip
+        name: hello.zip
+        path: build/distributions
   
   deploy:
     runs-on: ubuntu-latest
@@ -39,7 +39,7 @@ jobs:
     - name: Download hello world file
       uses: actions/download-artifact@v1
       with:
-        name: zipfile
+        name: hello.zip
     - uses: actions/setup-node@v1
       with:
         node-version: '10.x'
