@@ -24,7 +24,7 @@ jobs:
     - name: test
       run: ls ; cd build ; ls ; cd distributions ; ls
     - name: Upload zip file
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v2
       with:
         name: hello.zip
         path: build/distributions
@@ -37,7 +37,7 @@ jobs:
         working-directory: java-runtime
     steps:
     - name: Download hello world file
-      uses: actions/download-artifact@v1
+      uses: actions/download-artifact@v2
       with:
         name: hello.zip
     - uses: actions/setup-node@v1
