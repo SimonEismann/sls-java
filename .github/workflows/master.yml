@@ -22,10 +22,6 @@ jobs:
         
     - name: Build 
       run: chmod +x gradlew; ./gradlew build
-      
-    - uses: actions/setup-node@v1
-      with:
-        node-version: '10.x'
         
     - name: Upload
       uses: actions/upload-artifact@v2
@@ -45,6 +41,11 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: zipfile
+      
+    - uses: actions/setup-node@v1
+      with:
+        node-version: '10.x'
+        
     - name: Install Serverless Framework
       run: npm install -g serverless
       
