@@ -22,7 +22,7 @@ jobs:
     - name: Build 
       run: chmod +x gradlew; ./gradlew build
     - name: test
-      run: ls & cd build & ls & cd distributions & ls
+      run: ls ; cd build ; ls ; cd distributions ; ls
     - name: Upload zip file
       uses: actions/upload-artifact@v1
       with:
