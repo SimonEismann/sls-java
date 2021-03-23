@@ -27,6 +27,24 @@ jobs:
       with:
         node-version: '10.x'
         
+        
+    - name: Upload zip file
+      uses: actions/upload-artifact@v2
+      with:
+        name: zipfile
+        path: build/distributions/
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    defaults:
+      run:
+        working-directory: java-runtime
+    steps:
+    - name: Download hello world file
+      uses: actions/download-artifact@v2
+      with:
+        name: zipfile
     - name: Install Serverless Framework
       run: npm install -g serverless
       
